@@ -1,0 +1,24 @@
+{
+  "nav": {
+    "dashboards": {
+      "dashboards": "Dashboards",
+      "home": "Home"
+    },
+    "settings": {
+      "settings": "Settings",
+      "general": "General",
+      "appearance": "Appearance"
+    },
+    "master_data": {
+      "master_data": "Master Data",
+      "navigation": "Navigation",
+      "roles": "Roles",
+      "customer": "Customer",
+      "permissions": "Permissions"
+    },
+    "administrator": {
+      "administrator": "Administrator",
+      "role_has_navigation": "Role Navigation"
+    }
+  }
+}
