@@ -198,14 +198,15 @@ export function TableAtom({ data, columns, title, form, handleCreate, handleUpda
               onChange={(e) => setGlobalFilter(e.target.value)}
             />
             <MenuAction />
-            <Button color="info" onClick={() => {
-              setFormData({});
-              setMode("create");
-              open();
-            }}>
-              {/* <HiOutlinePlusCircle className="size-5 stroke-2" /> */}
-              Create
-            </Button>
+            {form != false && (
+              <Button color="info" onClick={() => {
+                setFormData({});
+                setMode("create");
+                open();
+              }}>
+                Create
+              </Button>
+            )}
           </div>
         </div>
         <Card className="relative mt-3 flex grow flex-col">
@@ -217,7 +218,7 @@ export function TableAtom({ data, columns, title, form, handleCreate, handleUpda
                     {headerGroup.headers.map((header) => (
                       <Th
                         key={header.id}
-                        className="bg-gray-200 font-semibold uppercase text-gray-800 dark:bg-dark-800 dark:text-dark-100 first:ltr:rounded-tl-lg last:ltr:rounded-tr-lg first:rtl:rounded-tr-lg last:rtl:rounded-tl-lg text-center"
+                        className="bg-gray-200 font-semibold uppercase text-gray-800 dark:bg-dark-800 dark:text-dark-100 first:ltr:rounded-tl-lg last:ltr:rounded-tr-lg first:rtl:rounded-tr-lg last:rtl:rounded-tl-lg text-center ${className}"
                       >
                         {header.column.getCanSort() ? (
                           <div
@@ -279,7 +280,7 @@ export function TableAtom({ data, columns, title, form, handleCreate, handleUpda
                         >
                           {row.getVisibleCells().map((cell) => {
                             return (
-                              <Td key={cell.id} className="text-center">
+                              <Td key={cell.id}>
                                 {flexRender(
                                   cell.column.columnDef.cell,
                                   cell.getContext(),
@@ -363,20 +364,22 @@ export function TableAtom({ data, columns, title, form, handleCreate, handleUpda
         </Card>
       </div>
 
-      <FormAction
-        isOpen={isOpen}
-        open={open}
-        close={close}
-        title={title}
-        form={form}
-        handleCreate={handleCreate}
-        handleUpdate={handleUpdate}
-        handleDelete={handleDelete}
-        buttonLoading={buttonLoading}
-        formData={formData}
-        setFormData={setFormData}
-        mode={mode}
-      />
+      {form != false && (
+        <FormAction
+          isOpen={isOpen}
+          open={open}
+          close={close}
+          title={title}
+          form={form}
+          handleCreate={handleCreate}
+          handleUpdate={handleUpdate}
+          handleDelete={handleDelete}
+          buttonLoading={buttonLoading}
+          formData={formData}
+          setFormData={setFormData}
+          mode={mode}
+        />
+      )}
     </>
   );
 }

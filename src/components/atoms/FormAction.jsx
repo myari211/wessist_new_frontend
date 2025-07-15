@@ -96,22 +96,16 @@ const FormAction = ({ isOpen, close, title, form, handleCreate, handleUpdate, ha
 
                                         {item.type == "multiselect" && (
                                             <MultiSelect
-                                                primaryColor="indigo"
                                                 isMultiple
-                                                options={item.options}
-                                                value={item.value}
+                                                primaryColor="indigo"
                                                 onChange={(e) => handleMultiSelectChange(setFormData)(e.target.value, item.name)}
+                                                options={item.options}
                                                 classNames={{
-                                                    container: "w-full",
-                                                    menuButton:
-                                                    "form-select-base w-full rounded-md border border-gray-300 hover:border-gray-400 focus:border-primary-600 dark:border-dark-450 dark:hover:border-dark-400 dark:focus:border-primary-500 bg-white dark:bg-dark-700 text-sm",
-                                                    menu: "bg-white dark:bg-dark-700 border border-gray-200 dark:border-dark-500 shadow-md mt-1 rounded-md",
-                                                    listItem: "hover:bg-gray-100 dark:hover:bg-dark-600 px-3 py-2 text-sm",
-                                                    tagItem:
-                                                    "bg-gray-200 dark:bg-dark-500 text-sm rounded px-2 py-0.5 text-gray-900 dark:text-white",
-                                                    tagItemIcon: "text-gray-500 hover:text-red-500",
-                                                    searchBox: "px-3 py-2 text-sm bg-white dark:bg-dark-700 focus:outline-none",
-                                                    noOptionsMessage: "px-3 py-2 text-gray-500 text-sm",
+                                                    container: () => "w-full",
+                                                    menu: () =>  "bg-white dar:bg-dark-700 border border-gray-200 dark:border-dark-500 shadow-md mt-1 rounded-md z-[999]",
+                                                    listItem: () => "hover:bg-gray-100 dark:hover:bg-dark-600 px-3 py-2 text-sm cursor-pointer",
+                                                    tagItem: () => "bg-gray-200 dark:bg-dark-500 text-sm rounded px-2 py-0.5 text-gray-900 dark:text-white",
+                                                    tagItemIcon: () => "text-gray-500 hover:text-red-500",
                                                 }}
                                             />
                                         )}

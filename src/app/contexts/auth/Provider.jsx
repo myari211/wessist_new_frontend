@@ -138,6 +138,8 @@ export function AuthProvider({ children }) {
 
       setSession(authToken);
       localStorage.setItem("userId", user.id);
+      localStorage.setItem("firstName", user.first_name);
+      localStorage.setItem("lastName", user.last_name);
 
       dispatch({
         type: "LOGIN_SUCCESS",
